@@ -1,0 +1,146 @@
+{% extends 'base_admin.html.twig' %}
+{% block body %}
+<br><br><br><br><br>
+<!-- Main container start -->
+<div class="main-container">
+    <!-- Row start -->
+    <div class="row gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="table-container">
+                <div class="table-responsive">
+                    <table id="copy-print-csv" class="table custom-table">
+                        <thead>
+                            <tr>
+                              <th>Nom de l'enregistrement</th>
+                              <th>Donnée de l'enregistrement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                              <td>Id</td>
+                              <td>{{client.id}}</td>
+                            </tr>
+                            <tr>
+                              <td>Nature</td>
+                              <td>{{client.nat}}</td>
+                            </tr>
+                            <tr>
+                              <td>Nature Client</td>
+                              <td>{{client.NatureClient}}</td> 
+                            </tr>
+                            <tr>
+                              <td>Raison sociale client</td>
+                              <td>{{client.RaisonSocialeClient}}</td>
+                            </tr>
+                            <tr>
+                              <td>Genre Client</td>
+                              <td>{{client.GenreClient}}</td>
+                            </tr>
+                            <tr>
+                              <td>Nom de client</td>
+                              <td>{{client.NomClient}}</td>
+                            </tr>
+                            <tr>
+                              <td>Prénom de client</td>
+                              <td>{{client.PrenomClient}}</td>
+                            </tr>
+                            <tr>
+                              <td>Numéro de téléphone officiel</td>
+                              <td>{{client.Tel1Client}}</td>
+                            </tr>
+                            <tr>
+                              <td>Numéro de téléphone secondaire</td>
+                              <td>{{client.Tel2Client}}</td>
+                            </tr>
+                            <tr>
+                              <td>Email de client</td>
+                              <td>{{client.EmailClient}}</td>
+                            </tr>
+                            <tr>
+                              <td>Adresse de client</td>
+                              <td>{{client.AdresseClient}}</td>
+                            </tr>
+                            <tr>
+                              <td>Prise en charge par :</td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Nom complet de client</td>
+                              <td>{{client.NomComplet}}</td>
+                            </tr>
+                            <tr>
+                              <td>Poste client</td>
+                              <td>{{client.PosteClient}}</td>
+                            </tr>
+                            <tr>
+                              <td>Statut Client</td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Date ajout client</td>
+                              <td>{{ client.DateAjoutClient | date('d/m/Y H:i:s') }}</td>  
+                            </tr>
+                            <tr>
+                              <td>Matricule fiscale client</td>
+                              <td>{{client.MatriculFiscalClient}}</td>   
+                            </tr>
+                            <tr>
+                               <td>Fonction Client</td>
+                               <td>{{client.FonctionClient}}</td> 
+                            </tr>
+                            <tr>
+                               <td>Page Web</td>
+                               <td>{{client.SiteWeb}}</td> 
+                             </tr>
+                             <tr>
+                               <td>Date de changement d'état</td>
+                               <td>
+                                {% if client.DateChangementEtat == null %}
+                                Il n'y a pas une date de changement d'état .
+                                {% else %}
+                                {{client.DateChangementEtat | date('d/m/Y H:i:s')}}
+                                {% endif %}  
+                                </td>
+                             </tr>
+                             <tr>
+                               <td>Chiffre d'affaire</td>
+                               <td>{{client.ChiffreAffaire}}</td>  
+                             </tr>
+                             <tr>
+                               <td>Origine</td>
+                               <td>{{client.Origine}}</td>  
+                             </tr>
+                             <tr>
+                               <td>Non récommander par</td>
+                               <td>{{client.NomRecommandePar}}</td>  
+                             </tr>
+                             <tr>
+                               <td>Prénom récommander par</td>
+                               <td>{{client.PrenomRecommandePar}}</td>  
+                             </tr>
+                             <tr>
+                               <td>Intéressé par</td>
+                               <td></td>  
+                             </tr>
+                             <tr>
+                               <td>Note client</td>
+                               <td>{{client.NotesClient}}</td>  
+                             </tr>
+                             <tr>
+                               <td>For sorting</td>
+                               <td>{{client.ForSorting}}</td>  
+                             </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Row end -->
+</div>
+<!-- Main container end -->
+
+
+
+{% endblock %}

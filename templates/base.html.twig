@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="{{ asset('front_end/img/adept.png') }}" type="image/x-icon">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ asset('front_end/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('front_end/vendors/bootstrap-selector/css/bootstrap-select.min.css') }}">
+        <!--icon font css-->
+        <link rel="stylesheet" href="{{ asset('front_end/vendors/themify-icon/themify-icons.css') }}">
+        <link rel="stylesheet" href="{{ asset('front_end/vendors/flaticon/flaticon.css') }}">
+        <link rel="stylesheet" href="{{ asset('front_end/vendors/animation/animate.css') }}">
+        <link rel="stylesheet" href="{{ asset('front_end/vendors/owl-carousel/assets/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('front_end/vendors/magnify-pop/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('front_end/vendors/nice-select/nice-select.css') }}">
+        <link rel="stylesheet" href="{{ asset('front_end/vendors/elagent/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('front_end/vendors/scroll/jquery.mCustomScrollbar.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('front_end/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('front_end/css/responsive.css') }}">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <div id="preloader">
+                <div id="ctn-preloader" class="ctn-preloader">
+                    <div class="animation-preloader">
+                        <div class="spinner"></div>
+                        <div class="txt-loading">
+                            <span data-text-preloader="S" class="letters-loading">
+                                S
+                            </span>
+                            <span data-text-preloader="I" class="letters-loading">
+                                I
+                            </span>
+                            <span data-text-preloader="M" class="letters-loading">
+                                M
+                            </span>
+                            <span data-text-preloader="P" class="letters-loading">
+                                P
+                            </span>
+                            <span data-text-preloader="L" class="letters-loading">
+                                L
+                            </span>  
+                            <span data-text-preloader="E" class="letters-loading">
+                                E
+                            </span>
+                            <span data-text-preloader="R" class="letters-loading">
+                                R
+                            </span> 
+                        </div>
+                        <p class="text-center">Chargement</p>
+                    </div>
+                    <div class="loader">
+                        <div class="row">
+                            <div class="col-3 loader-section section-left">
+                                <div class="bg"></div>
+                            </div>
+                            <div class="col-3 loader-section section-left">
+                                <div class="bg"></div>
+                            </div>
+                            <div class="col-3 loader-section section-right">
+                                <div class="bg"></div>
+                            </div>
+                            <div class="col-3 loader-section section-right">
+                                <div class="bg"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+            <header class="header_area header_area_six">
+                <nav class="navbar navbar-expand-lg menu_one erp_menu">
+                    <div class="container">
+                        <!--<a class="navbar-brand" href="{{ path('erp') }}"><img src="front_end/img/adept.png" srcset="img/adept.png 1.5x" alt="logo"></a>-->
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="menu_toggle">
+                                <span class="hamburger">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </span>
+                                <span class="hamburger-cross">
+                                    <span></span>
+                                    <span></span>
+                                </span>
+                            </span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto mr-auto menu">
+                                <li class="dropdown submenu nav-item"><a title="Pages" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Fonctionnalités</a>
+                                    <ul role="menu" class=" dropdown-menu">
+                                        <li class="dropdown submenu nav-item"><a title="Service" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Gestion de la Facturation</a>
+                                        </li>
+                                        <li><hr></li>
+                                        <li class="dropdown submenu nav-item"><a title="Service" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Gestion du Stock</a>
+                                        </li>
+                                        <li><hr></li>									
+                                        <li class="dropdown submenu nav-item"><a title="Service" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Gestion des Règlements</a>
+                                        </li>
+                                        <li><hr></li>
+                                        <li class="dropdown submenu nav-item"><a title="Service" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Statistiques & Tableaux de Bord</a>
+                                        </li>									
+                                    </ul>
+                                </li>
+                                
+                                <li class="nav-item dropdown submenu">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Support
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a href="#" class="nav-link">F.A.Q – Nous répondons à vos questions</a></li>
+                                        <li><hr></li>
+                                        <li class="nav-item"><a href="#" class="nav-link">Guides et Tutoriels</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown submenu">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Tarifs
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown submenu mega_menu">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Contact 
+                                    </a>
+                                </li>
+                            </ul>
+                            <a class="er_btn btn_hover" href="{{ path('security_login') }}">Connexion</a>&nbsp;
+                            <a class="er_btn btn_hover" href="{{ path('security_registration') }}">Créer un compte</a>
+                        </div>
+                    </div>
+                </nav>
+            </header>       
+        
+        <div class="body_wrapper">
+           {% block body %}{% endblock %}
+        </div>
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="{{ asset('front_end/js/jquery-3.2.1.min.js') }}"></script>
+            <script src="{{ asset('front_end/js/propper.js') }}"></script>
+            <script src="{{ asset('front_end/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('front_end/vendors/wow/wow.min.js') }}"></script>
+            <script src="{{ asset('front_end/vendors/sckroller/jquery.parallax-scroll.js') }}"></script>
+            <script src="{{ asset('front_end/vendors/owl-carousel/owl.carousel.min.js') }}"></script>
+            <script src="{{ asset('front_end/vendors/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+            <script src="{{ asset('front_end/vendors/isotope/isotope-min.js') }}"></script>
+            <script src="{{ asset('front_end/vendors/magnify-pop/jquery.magnific-popup.min.js') }}"></script>
+            <script src="{{ asset('front_end/vendors/bootstrap-selector/js/bootstrap-select.min.js') }}"></script>
+            <script src="{{ asset('front_end/vendors/nice-select/jquery.nice-select.min.js') }}"></script>
+            <script src="{{ asset('front_end/vendors/scroll/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+            <script src="{{ asset('front_end/js/plugins.js') }}"></script>
+            <script src="{{ asset('front_end/js/main.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
+        

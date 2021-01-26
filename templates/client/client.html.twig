@@ -1,0 +1,136 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+{% for message in app.flashes('info') %}
+    <div id="notes"></div>  
+{% endfor %}
+
+<!-- Page header start -->
+<div class="page-header">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><i class="icon-home2"></i></li>
+        <li class="breadcrumb-item">admin</li>
+        <li class="breadcrumb-item active">Clients</li>
+    </ol>
+</div>
+<!-- Page header end -->
+<!-- Main container start -->
+<div class="main-container">
+  
+    <!-- Row start -->
+    <div class="documents-container">
+        <div class="documents-header">
+            <h5>Liste des clients</h5>
+            <a href="" class="btn btn-info btn-ls" data-toggle="modal" data-target=".bd-example-modal-x-addclient">
+                <i class="icon-plus-square"></i> Ajouter un nouveau client
+            </a>
+        </div>
+        
+        <div class="table-container">
+            <div class="table-responsive">
+                <table class="table custom-table" id="copy-print-csv">
+                    <thead>
+                        <tr>  
+                          <th>Nature</th>
+                          <th>Client</th>
+                          <th>Email</th>
+                          <th>Téléphone</th>
+                           <!--<th>Adresse</th>-->
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                    <tbody>
+                        
+                      {% for client in clients %}
+                        <tr>
+                            <td>{{ client.nat }}</td>
+                            <td>{{ client.NomComplet}}</td>
+                            <td>{{ client.EmailClient}}</td>
+                            <td>
+                            {% for num in nums %}
+                                {% if num.client.id == client.id %}
+                                  {{ num.number}}<br>
+                                {% endif %}
+                            {% endfor %}    
+                            </td>
+                           <!--<td>
+                            {#{% for adr in adrs %}
+                                {% if adr.client.id == client.id %}
+                                    {{ adr.AdresseClient}}
+                                    {{ adr.RegionClient}}
+                                    {{ adr.CodePostalClient}}
+                                    {{ adr.PaysClient}}<br>      
+                                {% endif %}    
+                            {% endfor %} 
+                             #}    
+                            </td>-->
+                            
+                            <td>
+                                <div class="td-actions">
+                                    <a href="{{ path('client_supprime', { 'id': client.id }) }}"  class="btn btn-danger">Supprimer</a>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        <!-- Start Modal edit client -->
+                        <div class="modal fade bd-example-modal-x" id="myModal{{ client.id }}" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-success text-white">
+                                        <h5 class="modal-title" id="myExtraLargeModalLabel">Editer Client</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="page-wrapper pinned">
+                                        <div class="modal-body">
+                                            {{ render(controller('App\\Controller\\ClientController::editclient', {'id': client.id})) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal edit client -->
+                        {% else %}
+                        <tr>
+                            <td colspan=7>Il n'y a pas des clients inscrits</td>
+                        </tr>
+                        
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Row end -->     
+</div>
+<!-- Main container end -->
+
+
+
+
+<!-- Start Modal new client -->
+<div class="modal fade bd-example-modal-x-addclient" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header bg-info text-white">
+                <h5 class="modal-title" id="myExtraLargeModalLabel">Nouveau client</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="page-wrapper pinned">
+                <div class="modal-body">
+                    {{ render(controller('App\\Controller\\ClientController::newclient'))}}   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal new client -->
+
+
+
+
+{% endblock %}

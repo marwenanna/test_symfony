@@ -1,0 +1,207 @@
+
+{% block body %}
+
+<!-- Script pour recuperer les emails des clients -->
+    <div style="display: none;">
+        {% set number_lines_email = "" %}
+        {% for client in all_clients %}
+           <span id="{{ client.id }}">{{ client.EmailClient }}</span>
+           {% set i = client.id %} 
+           {% set number_lines_email = i %}   
+        {% endfor %}   
+    </div>
+    <span style="display: none;" id="number_email">{{number_lines_email}}</span>
+<!-- End script -->    
+    
+<!-- Main container start -->
+<div class="main-container">
+    <div class="row gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card"> 
+                <div class="card-body">
+                        <div class="wizard clearfix">
+                            {% if client.nat == 'PP' %}
+                                <!-- Form start -->
+                                <form action = "{{ path('edit_client', { 'id': client.id }) }}" method="POST" id="register_form_edit"></form>
+                                    
+                                    <!-- Row start -->
+                                    <div class="row gutters">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <div class="card1">
+                                                <div class="card-body">
+                                                    <nav class="nav nav-pills nav-fill success">
+                                                        
+                                                        <a class="nav-item nav-link active" href="#" style="border:1px solid #ccc" id="list_donnees_client_edit_{{client.id}}"><span id="1_{{client.id}}" class="icon-done_all"></span> Données du client</a>
+                                                        <a class="nav-item nav-link" href="#" style="border:1px solid #ccc" id="list_coordonnees_client_edit_{{client.id}}"><span id="2_{{client.id}}" ></span> Coordonnées du client</a>
+                                                        <a class="nav-item nav-link" href="#" style="border:1px solid #ccc" id="list_mobile_edit_{{client.id}}"><span id="3_{{client.id}}"></span>Mobile</a>
+                                                        <a class="nav-item nav-link" href="#" style="border:1px solid #ccc" id="list_adresse_edit_{{client.id}}"><span id="4_{{client.id}}"></span>Adresse</a>
+                                                        <a class="nav-item nav-link" href="#" style="border:1px solid #ccc" id="list_autres_donnees_client_edit_{{client.id}}"><span id="5_{{client.id}}"></span> Autres données du client</a>
+                                                        <a class="nav-item nav-link" href="#" style="border:1px solid #ccc" id="list_autres_donnees_commerciales_edit_{{client.id}}"><span id="6_{{client.id}}"></span> Autres données commerciales</a>
+                                                        <a class="nav-item nav-link" href="#" style="border:1px solid #ccc" id="list_confirmation_edit_{{client.id}}"><span id="7_{{client.id}}"></span>Confirmation</a>
+                                                    
+                                                    </nav>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Row end --> 
+                                    <hr>
+
+                                    <!-- Start tab content --> 
+                                    <div class="tab-content" style="margin-top:16px;">
+
+                                        <!-- Données du client -->
+                                        <div class="tab-pane active" id="donnees_client_edit_{{client.id}}">
+                                            <div class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div class="row gutters">
+                                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                                            <div class="form-group">
+                                                                {{ form_row(formClient.genre_client) }}
+                                                            </div>
+                                                        </div> 
+                                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12"> 
+                                                            <div class="form-group">
+                                                                <label  class="required">Nom</label>
+                                                                <input type="text" name="nom_edit" id="nom_edit_{{client.id}}" class="form-control" value="{{client.NomClient}}"/>
+                                                                <div id="error_nom_edit_{{client.id}}" class="invalid-feedback"></div>
+                                                            </div>
+                                                        </div> 
+                                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">   
+                                                            <div class="form-group">
+                                                                <label class="required">Prénom</label>
+                                                                <input type="text" name="prenom_edit" id="prenom_edit_{{client.id}}" class="form-control" value="{{client.PrenomClient}}"/>
+                                                                <div id="error_prenom_edit_{{client.id}}" class="invalid-feedback"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>  
+                                                    <div align="right">
+                                                        <button type="button" name="1_suivant" id="{{client.id}}" class="btn btn-suivant btn-rounded 1_suivant">Suivant</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Données du client --> 
+                                        
+
+                                        <!-- Coordonnées du client -->
+                                        <div class="tab-pane fade" id="coordonnees_client_edit_{{client.id}}">
+                                            <div class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div class="row gutters">
+                                                        <div class="col-xl-6 col-lglg-6 col-md-6 col-sm-12 col-12"> 
+                                                            <div class="form-group">
+                                                                <label class="required">Email</label>
+                                                                <input type="text" name="email_edit_{{client.id}}" id="email_edit_{{client.id}}" class="form-control" value="{{client.EmailClient}}"/>
+                                                                <div id="error_email_edit_{{client.id}}" class="invalid-feedback"></div>
+                                                                <div id="error_email_edit_2_{{client.id}}" class="invalid-feedback"></div>
+                                                            </div>
+                                                        </div> 
+                                                        <div class="col-xl-6 col-lglg-6 col-md-6 col-sm-12 col-12">   
+                                                            <div class="form-group">
+                                                                <label>Site Web</label>
+                                                                <input type="text" name="site_web_edit" id="site_web_edit" class="form-control" value="{{client.SiteWeb}}"/>  
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                    <div class="fade">
+                                                        <div class="row gutters">
+                                                            <div class="col-xl-6 col-lglg-6 col-md-6 col-sm-12 col-12"> 
+                                                                <div class="form-group">
+                                                                    <input type="hidden" name="email_origine_{{client.id}}" id="email_origine_{{client.id}}" class="form-control" value="{{client.EmailClient}}"/>
+                                                                </div>
+                                                            </div> 
+                                                        </div> 
+                                                    </div>  
+                                                    <div align="right">
+                                                        <button type="button" name="2_precedent" id="{{client.id}}" class="btn btn-suivant btn-rounded 2_precedent">Précédent</button>
+                                                        <button type="button" name="2_suivant" id="{{client.id}}" class="btn btn-suivant btn-rounded 2_suivant">Suivant</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Coordonnées du client -->
+                                         
+                                        <!-- Mobile -->
+                                        <div class="tab-pane fade" id="mobile_edit_{{client.id}}">
+                                            <div class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div class="row gutters">
+                                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                                            <div class="form-group">
+                                                                <input type="hidden" id="numberaddeditpp" name="numberaddeditpp" value="">
+                                                            </div>
+                                                        </div> 
+                                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                                            <div class="form-group">
+                                                                <button type="button" name="numeditpp_{{client.id}}" id="{{client.id}}" class="btn btn-outline-info numeditpp"><i class="icon-plus-square"></i> Ajouter un numéro de téléphone</button>   
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                                            <div class="form-group">
+                                                                <input type="hidden" id="numberremoveeditpp" name="numberremoveeditpp" value="">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                    <hr>  
+                                                    <div class="row gutters">
+                                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">   
+                                                            <div class="form-group">
+                                                                <label>Pays</label>
+                                                                <select class="form-control" id="Pays">
+                                                                    <option selected>Tunisie</option>
+                                                                    <option value="1">France</option>
+                                                                </select>  
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">   
+                                                            <div class="form-group">
+                                                                <label>Numéro de téléphone</label>
+                                                                <input type="text" name="tel" id="tel" class="form-control" value=""/>  
+                                                            </div>
+                                                        </div>         
+                                                    </div>
+                                                    <hr> 
+                                                    <div align="right">
+                                                        <button type="button" name="3_precedent" id="{{client.id}}" class="btn btn-suivant btn-rounded 3_precedent">Précédent</button>
+                                                        <button type="button" name="3_suivant" id="{{client.id}}" class="btn btn-suivant btn-rounded 3_suivant">Suivant</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End espace mobile -->
+
+                                    </div> 
+                                    <!-- End tab content -->
+    
+                                </form>
+                                <!-- End Form -->
+                            {% endif %} 
+                            {% if client.nat == 'PM' %}
+                                  personne morale
+                            {% endif %}
+                            {% if client.nat == 'EP' %}
+                                  Etablissement public
+                            {% endif %}
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main container end -->
+
+
+<!-- Wizard / validation / add Tel and Adresse  JS -->
+<script src="{{ asset('back_end/js/wizard_validation_edit.js') }}"></script>
+
+
+<!-- Other js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ 
+{% block javascripts %}{% endblock %}
+{% endblock %}
+

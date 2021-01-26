@@ -1,0 +1,85 @@
+
+{% extends 'base_authen.html.twig' %}
+{% block body %}
+       
+            <div class="authentication">
+               <!-- Container start -->
+                <div class="container">
+                        
+                    <form action="{{ path('security_login') }}" method="POST">
+                        <div class="row justify-content-md-center">
+                            <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
+                                <div class="login-screen">
+                                    <div class="login-box">
+                                        
+                                        <h3 style="text-align:center;color:#225de4">S'identifier</h3>
+                                        
+                                        {% if error %}
+                                         <div style="color: #EB4A4A;font:12.8px;text-align:center;padding-bottom: 15px;">
+                                             Email ou mot de passe incorrect.
+                                         </div>
+                    
+                                        {% endif %}
+                                        
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Entrez votre adresse email..." name="_username"  required >
+                                        </div>   
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Saisir le mot de passe..." name="_password" required>
+                                        </div>
+                                        <div class="actions mb-4">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="remember_pwd" name="_remember_me" checked/>
+                                                <label class="custom-control-label" for="remember_pwd">Se souvenir de moi</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Se connecter</button>
+                                        </div>
+                                        <div class="forgot-pwd">
+                                            <a href="{{ path('forgotten_password') }}">Mot de passe oublié ?</a>
+                                        </div>
+                                        <hr>
+                                        <div class="actions align-left">
+                                            <span class="additional-link">Je n'ai pas encore de compte !</span>
+                                            <a href="{{ path('security_registration') }}" class="btn btn-dark">S'inscrire</a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+              <!-- Container end -->   
+            </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

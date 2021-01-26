@@ -1,0 +1,75 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+
+<!-- Page header start -->
+<div class="page-header">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><i class="icon-home2"></i></li>
+        <li class="breadcrumb-item">admin</li>
+        <li class="breadcrumb-item active">utilisateurs</li>
+    </ol>
+</div>
+<!-- Page header end -->
+
+
+<!-- Main container start -->
+<div class="main-container">
+    <!-- Row start -->
+    <div class="row gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="table-container">
+                <div class="table-responsive">
+                    <h4>Liste des Utilisteurs</h4>
+                    <table class="table custom-table m-0">
+                        <thead>
+                            <tr>
+                              <th>Id</th>
+                              <th>email</th>
+                              <th>roles</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                        <tbody>
+                            {% for user in users %}
+                                <tr>
+                                    <td>{{ user.id }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>
+                                        {% for role in user.roles %}
+                                        {% if role =="ROLE_USER" %}
+                                             Utilisateur 
+                                        {% elseif role =="ROLE_EDITOR" %}
+                                             Editeur
+                                        {% elseif role =="ROLE_ADMIN" %}
+                                             Administrateur
+                                        {% endif %}
+                                        {% endfor %}
+
+                                    </td>
+                                    <td>
+                                        <div class="td-actions">
+                                            <a href="{{ path('modify_users', {'id': user.id}) }}" class="icon blue"  data-placement="top" title="Editer">
+                                                <i class="panel-control-icon icon-edit-3"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% else %}
+                                <tr>
+                                    <td colspan=5>Il n'y a pas d'utilisateur inscrit</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Row end -->
+
+</div>
+<!-- Main container end -->
+
+{% endblock %}

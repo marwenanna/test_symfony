@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="{{ asset('front_end/img/adept.png') }}" type="image/x-icon">
+        <title>{% block title %}{{title_name}}{% endblock %}</title>
+         <!-- Bootstrap CSS -->
+         <link rel="stylesheet" href="{{ asset('back_end/css/bootstrap.min.css') }}">
+         <link rel="stylesheet" href="{{ asset('front_end/css/style.css') }}">
+         <link rel="stylesheet" href="{{ asset('front_end/css/responsive.css') }}">
+         <link rel="stylesheet" href="{{ asset('front_end/css/bootstrap.min.css') }}">
+         <!-- Master CSS -->
+         <link rel="stylesheet" href="{{ asset('back_end/css/main.css') }}">
+        
+         <!-- *************
+             ************ Vendor Css Files *************
+         ************ -->
+         <!-- Particles CSS -->		
+         <link rel="stylesheet" href="{{ asset('back_end/vendor/particles/particles.css') }}">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+              
+        <div id="particles-js"></div>
+        <div class="countdown-bg"></div>
+        
+            
+
+
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+
+                <!-- Required jQuery first, then Bootstrap Bundle JS -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+                <script src="{{ asset('back_end/js/jquery.min.js') }}"></script>
+                <script src="{{ asset('back_end/js/bootstrap.bundle.min.js') }}"></script>
+                <!-- Main JS -->
+                <script src="{{ asset('back_end/js/main.js') }}"></script>
+
+                <!-- *************
+                    ************ Vendor Js Files *************
+                    ************* -->
+                <!-- Particles JS -->		
+                <script src="{{ asset('back_end/vendor/particles/particles.min.js') }}"></script>
+                <script src="{{ asset('back_end/vendor/particles/particles-custom-error.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
+        
